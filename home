@@ -1,0 +1,38 @@
+/* Einheitlich weisser Hintergrund für alle Eingabe- und Textfelder */
+.il-wrapper textarea.il-textarea,
+.il-wrapper input.il-input,
+.il-wrapper textarea,
+.il-wrapper input[type="text"],
+.il-wrapper input[type="email"],
+.il-wrapper input[type="tel"] {
+  width: 100% !important;
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #ffffff !important;
+  border-radius: 12px !important;
+  padding: 14px 16px !important;
+  font-family: "Manrope", sans-serif !important;
+  font-size: 15px !important;
+  margin-top: 8px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Fokus-Rahmen beim Reinklicken */
+.il-wrapper textarea.il-textarea:focus,
+.il-wrapper input.il-input:focus,
+.il-wrapper textarea:focus,
+.il-wrapper input[type="text"]:focus,
+.il-wrapper input[type="email"]:focus,
+.il-wrapper input[type="tel"]:focus {
+  border-color: var(--il-gold) !important;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4) !important;
+}
+
+/* Platzhalter-Text dezent grau */
+.il-wrapper textarea::placeholder,
+.il-wrapper input::placeholder {
+  color: #9ca3af !important;
+  opacity: 1 !important;
+}
