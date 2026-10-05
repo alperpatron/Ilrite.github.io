@@ -1,0 +1,935 @@
+{% comment %}
+  ILRITE Solutions - High-Converting Landing Section
+{% endcomment %}
+
+<!-- Google Fonts: Outfit (Headings) & Manrope (Body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --il-bg: #0f1115;
+    --il-surface: #161920;
+    --il-surface-2: #1e232d;
+    --il-border: #2a313d;
+    --il-text: #f8fafc;
+    --il-text-muted: #94a3b8;
+    --il-gold: #f59e0b;
+    --il-gold-hover: #d97706;
+    --il-gold-gradient: linear-gradient(135deg, #fcd34d 0%, #f59e0b 50%, #d97706 100%);
+    --il-red: #ef4444;
+    --il-green: #10b981;
+    --il-blue: #3b82f6;
+  }
+
+  .il-wrapper {
+    background-color: var(--il-bg);
+    color: var(--il-text);
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
+  }
+
+  .il-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .il-wrapper h1,
+  .il-wrapper h2,
+  .il-wrapper h3,
+  .il-wrapper h4,
+  .il-step-num,
+  .il-price {
+    font-family: "Outfit", sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  .il-text-gold {
+    background: var(--il-gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .il-btn-hero {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--il-gold-gradient);
+    color: #0f1115;
+    font-family: "Outfit", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.35);
+    border: none;
+    cursor: pointer;
+  }
+  .il-btn-hero:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px -5px rgba(245, 158, 11, 0.5);
+    color: #0f1115;
+  }
+
+  .il-btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    color: var(--il-gold);
+    font-family: "Outfit", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .il-btn-outline:hover {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--il-gold);
+  }
+
+  .il-panel {
+    background: linear-gradient(160deg, var(--il-surface-2), var(--il-surface));
+    border: 1px solid var(--il-border);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Header */
+  .il-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 17, 21, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--il-border);
+    padding: 16px 0;
+  }
+  .il-header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .il-logo-img {
+    height: auto;
+    display: block;
+  }
+  .il-nav {
+    display: flex;
+    gap: 28px;
+  }
+  .il-nav a {
+    color: var(--il-text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+  .il-nav a:hover {
+    color: var(--il-gold);
+  }
+
+  /* Hero */
+  .il-hero {
+    padding: 80px 0 60px;
+    position: relative;
+  }
+  .il-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .il-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 9999px;
+    background: rgba(245, 158, 11, 0.08);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    color: var(--il-gold);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .il-hero h1 {
+    font-size: 46px;
+    line-height: 1.1;
+    font-weight: 800;
+    margin: 0 0 20px;
+    color: #fff;
+  }
+  .il-hero p {
+    font-size: 18px;
+    color: var(--il-text-muted);
+    margin-bottom: 32px;
+  }
+  .il-hero-img-box {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid var(--il-border);
+  }
+  .il-hero-img-box img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+  }
+  .il-float-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(22, 25, 32, 0.95);
+    border: 1px solid var(--il-border);
+    padding: 16px 20px;
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+  }
+
+  /* Problem / Solution */
+  .il-section {
+    padding: 80px 0;
+    border-top: 1px solid var(--il-border);
+  }
+  .il-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .il-tag-red {
+    font-family: "Outfit", sans-serif;
+    color: var(--il-red);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .il-tag-green {
+    font-family: "Outfit", sans-serif;
+    color: var(--il-green);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .il-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .il-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 15px;
+  }
+
+  /* Benefits Grid */
+  .il-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .il-benefit-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--il-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  /* Steps */
+  .il-steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 32px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .il-step-item {
+    display: flex;
+    gap: 20px;
+  }
+  .il-step-num {
+    font-size: 32px;
+    font-weight: 800;
+    color: rgba(245, 158, 11, 0.4);
+  }
+
+  /* Pricing Cards */
+  .il-pricing-card {
+    position: relative;
+    border-radius: 24px;
+    padding: 36px;
+    background: linear-gradient(160deg, var(--il-surface-2), var(--il-surface));
+    border: 1px solid var(--il-border);
+  }
+  .il-pricing-card.featured {
+    border-color: rgba(245, 158, 11, 0.6);
+    box-shadow: 0 10px 40px -10px rgba(245, 158, 11, 0.25);
+  }
+  .il-pricing-badge {
+    position: absolute;
+    top: -12px;
+    right: 28px;
+    background: var(--il-gold-gradient);
+    color: #0f1115;
+    font-family: "Outfit", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 9999px;
+  }
+  .il-price {
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--il-gold);
+    margin: 20px 0 4px;
+  }
+
+  /* Radio Plan Selector in Checkout Form */
+  .il-plan-select-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .il-plan-option {
+    position: relative;
+    cursor: pointer;
+  }
+  .il-plan-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .il-plan-box {
+    border: 1px solid var(--il-border);
+    border-radius: 16px;
+    padding: 16px;
+    background: rgba(15, 17, 21, 0.6);
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  .il-plan-option:hover .il-plan-box {
+    border-color: rgba(245, 158, 11, 0.4);
+  }
+  .il-plan-option input[type="radio"]:checked + .il-plan-box {
+    border-color: var(--il-gold);
+    background: rgba(245, 158, 11, 0.06);
+    box-shadow: 0 0 0 1px var(--il-gold);
+  }
+  .il-plan-title {
+    font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+  }
+  .il-plan-price {
+    font-family: "Outfit", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--il-gold);
+    margin: 4px 0 2px;
+  }
+  .il-plan-note {
+    font-size: 11px;
+    color: var(--il-text-muted);
+    margin-bottom: 8px;
+  }
+
+  /* Form Elements: Einheitlich weisse Eingabefelder und Textareas */
+  .il-wrapper textarea.il-textarea,
+  .il-wrapper input.il-input,
+  .il-wrapper textarea,
+  .il-wrapper input[type="text"],
+  .il-wrapper input[type="email"],
+  .il-wrapper input[type="tel"] {
+    width: 100% !important;
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border: 1px solid #ffffff !important;
+    border-radius: 12px !important;
+    padding: 14px 16px !important;
+    font-family: "Manrope", sans-serif !important;
+    font-size: 15px !important;
+    margin-top: 8px !important;
+    box-sizing: border-box !important;
+    outline: none !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .il-wrapper textarea.il-textarea:focus,
+  .il-wrapper input.il-input:focus,
+  .il-wrapper textarea:focus,
+  .il-wrapper input[type="text"]:focus,
+  .il-wrapper input[type="email"]:focus,
+  .il-wrapper input[type="tel"]:focus {
+    border-color: var(--il-gold) !important;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.4) !important;
+  }
+
+  .il-wrapper textarea::placeholder,
+  .il-wrapper input::placeholder {
+    color: #9ca3af !important;
+    opacity: 1 !important;
+  }
+
+  /* FAQ Accordion */
+  details.il-faq-item {
+    border-bottom: 1px solid var(--il-border);
+    padding: 18px 0;
+    cursor: pointer;
+  }
+  details.il-faq-item summary {
+    font-family: "Outfit", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  details.il-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  details.il-faq-item summary::after {
+    content: "+";
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--il-text-muted);
+  }
+  details[open].il-faq-item summary::after {
+    content: "−";
+    color: var(--il-gold);
+  }
+  details.il-faq-item p {
+    margin-top: 10px;
+    color: var(--il-text-muted);
+    font-size: 15px;
+  }
+
+  @media (max-width: 950px) {
+    .il-hero-grid, .il-grid-2, .il-grid-4, .il-plan-select-grid {
+      grid-template-columns: 1fr !important;
+    }
+    .il-nav { display: none; }
+    .il-hero h1 { font-size: 34px; }
+  }
+</style>
+
+<div class="il-wrapper">
+  <!-- Header -->
+  <header class="il-header">
+    <div class="il-container il-header-content">
+      <a href="#top" style="text-decoration: none; display: flex; align-items: center;">
+        {% if section.settings.logo_img != blank %}
+          <img 
+            src="{{ section.settings.logo_img | image_url: width: 300 }}" 
+            alt="ILRITE Solutions Logo"
+            class="il-logo-img"
+            style="width: {{ section.settings.logo_width }}px;"
+            loading="eager"
+          >
+        {% else %}
+          <span style="font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 22px; color: #fff;">
+            <span style="color: var(--il-gold);">)))</span> ILRITE
+          </span>
+        {% endif %}
+      </a>
+      <nav class="il-nav">
+        <a href="#loesung">Lösung</a>
+        <a href="#vorteile">Vorteile</a>
+        <a href="#ablauf">So funktioniert's</a>
+        <a href="#preise">Preise</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#kontakt" class="il-btn-hero" style="padding: 8px 18px; font-size: 14px;">NFC-Set anfordern</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="il-hero">
+    <div class="il-container il-hero-grid">
+      <div>
+        <span class="il-badge">📍 Lokal aus der Region Basel</span>
+        <h1>Mehr Google-Bewertungen für dein Lokal in Basel – <span class="il-text-gold">in nur 3 Sekunden.</span></h1>
+        <p>Halte das Smartphone an unseren NFC-Sticker und erhalte direkt echte 5-Sterne-Bewertungen von deinen Kunden. Ohne App, ohne Aufwand.</p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="#preise" class="il-btn-hero">Jetzt Test-Set anfordern</a>
+          <a href="#kontakt" class="il-btn-outline">Demo vereinbaren</a>
+        </div>
+        <div style="display: flex; gap: 20px; margin-top: 36px; font-size: 14px; font-weight: 500; color: var(--il-text-muted); flex-wrap: wrap;">
+          <span>⚡ Plug &amp; Play</span>
+          <span>🛡️ Fertig konfiguriert</span>
+          <span>⭐ Lieferung in 3–5 Tagen</span>
+        </div>
+      </div>
+      <div>
+        <div class="il-hero-img-box">
+          {% if section.settings.hero_img != blank %}
+            <img 
+              src="{{ section.settings.hero_img | image_url: width: 1000 }}" 
+              alt="ILRITE NFC Sticker"
+              width="1000"
+              height="667"
+              loading="lazy"
+            >
+          {% else %}
+            <img 
+              src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" 
+              alt="Restaurant Tisch" 
+              width="1000" 
+              height="667" 
+              loading="lazy"
+            >
+          {% endif %}
+          <div class="il-float-card">
+            <div style="color: var(--il-gold); font-size: 15px;">★★★★★</div>
+            <strong style="display: block; font-family: 'Outfit', sans-serif; font-size: 16px; margin-top: 4px;">+312% Bewertungen</strong>
+            <span style="font-size: 12px; color: var(--il-text-muted);">im Schnitt nach 90 Tagen</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem / Solution -->
+  <section id="loesung" class="il-section">
+    <div class="il-container">
+      <h2 style="font-size: 34px; font-weight: 800; margin-bottom: 40px;">Warum die meisten Lokale zu wenige Bewertungen haben</h2>
+      <div class="il-grid-2">
+        <div class="il-panel">
+          <span class="il-tag-red">Das Problem</span>
+          <ul class="il-list">
+            <li><span>❌</span> <span>Deine Gäste sind zufrieden – denken aber im Alltag nicht an eine Bewertung.</span></li>
+            <li><span>❌</span> <span>Google öffnen, Lokal suchen, anmelden: viel zu umständlich.</span></li>
+            <li><span>❌</span> <span>Weniger Rezensionen bedeuten schlechteres Google-Ranking.</span></li>
+          </ul>
+        </div>
+        <div class="il-panel" style="border-color: rgba(245, 158, 11, 0.4);">
+          <span class="il-tag-green">Die Lösung</span>
+          <ul class="il-list">
+            <li><span>✅</span> <span>NFC-Chip im Epoxy-Sticker – Smartphone kurz dranhalten genügt.</span></li>
+            <li><span>✅</span> <span>Kein Suchen, kein Tippen: das Bewertungsfeld öffnet sich sofort.</span></li>
+            <li><span>✅</span> <span>Kunden bewerten spontan und direkt vor Ort am Tisch oder Tresen.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vorteile -->
+  <section id="vorteile" class="il-section">
+    <div class="il-container">
+      <h2 style="font-size: 34px; font-weight: 800; margin-bottom: 40px;">Ein kleines Detail auf dem Tisch. <span class="il-text-gold">Grosse Wirkung.</span></h2>
+      <div class="il-grid-4">
+        <div class="il-panel">
+          <div class="il-benefit-icon">📱</div>
+          <h3 style="font-size: 18px; font-weight: 700;">Extrem einfach</h3>
+          <p style="color: var(--il-text-muted); font-size: 14px; margin-top: 6px;">Funktioniert mit jedem iPhone &amp; Android – komplett ohne zusätzliche App.</p>
+        </div>
+        <div class="il-panel">
+          <div class="il-benefit-icon">💧</div>
+          <h3 style="font-size: 18px; font-weight: 700;">Langlebig &amp; robust</h3>
+          <p style="color: var(--il-text-muted); font-size: 14px; margin-top: 6px;">Wasserfeste 3D-Epoxy-Schicht – ideal für Gastro, Tische und Kassenbereiche.</p>
+        </div>
+        <div class="il-panel">
+          <div class="il-benefit-icon">⚙️</div>
+          <h3 style="font-size: 18px; font-weight: 700;">Rundum-Service</h3>
+          <p style="color: var(--il-text-muted); font-size: 14px; margin-top: 6px;">Wir programmieren alle Chips fix und fertig für Ihr Google-Profil.</p>
+        </div>
+        <div class="il-panel">
+          <div class="il-benefit-icon">📈</div>
+          <h3 style="font-size: 18px; font-weight: 700;">Mehr Umsatz</h3>
+          <p style="color: var(--il-text-muted); font-size: 14px; margin-top: 6px;">Besseres Ranking in den lokalen Google-Suchergebnissen bringt mehr Gäste.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf Steps -->
+  <section id="ablauf" class="il-section">
+    <div class="il-container il-hero-grid">
+      <div>
+        <h2 style="font-size: 34px; font-weight: 800;">So funktioniert's</h2>
+        <p style="color: var(--il-text-muted); margin-top: 6px;">Drei einfache Schritte – einmal angebracht, läuft es von allein.</p>
+        <ul class="il-steps-list">
+          <li class="il-step-item">
+            <span class="il-step-num">01</span>
+            <div style="border-left: 2px solid var(--il-border); padding-left: 18px;">
+              <h4 style="font-size: 18px; font-weight: 700;">Sticker aufkleben</h4>
+              <p style="color: var(--il-text-muted); font-size: 14px; margin: 4px 0 0;">Auf Tisch, Tresen oder Kasse kleben oder den Aufsteller hinstellen.</p>
+            </div>
+          </li>
+          <li class="il-step-item">
+            <span class="il-step-num">02</span>
+            <div style="border-left: 2px solid var(--il-border); padding-left: 18px;">
+              <h4 style="font-size: 18px; font-weight: 700;">Kunde hält Handy dran</h4>
+              <p style="color: var(--il-text-muted); font-size: 14px; margin: 4px 0 0;">Das offizielle Bewertungsfenster öffnet sich direkt auf dem Smartphone.</p>
+            </div>
+          </li>
+          <li class="il-step-item">
+            <span class="il-step-num">03</span>
+            <div style="border-left: 2px solid var(--il-border); padding-left: 18px;">
+              <h4 style="font-size: 18px; font-weight: 700;">5 Sterne erhalten</h4>
+              <p style="color: var(--il-text-muted); font-size: 14px; margin: 4px 0 0;">Feedback in wenigen Sekunden erfasst – ganz ohne Personalaufwand.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="il-hero-img-box">
+          {% if section.settings.stand_img != blank %}
+            <img 
+              src="{{ section.settings.stand_img | image_url: width: 1000 }}" 
+              alt="Tischaufsteller"
+              width="1000"
+              height="667"
+              loading="lazy"
+            >
+          {% else %}
+            <img 
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80" 
+              alt="Tischaufsteller" 
+              width="1000" 
+              height="667" 
+              loading="lazy"
+            >
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preise Preistabellen -->
+  <section id="preise" class="il-section">
+    <div class="il-container">
+      <h2 style="font-size: 34px; font-weight: 800;">Pakete &amp; Preise</h2>
+      <p style="color: var(--il-text-muted); margin-bottom: 40px;">Keine Abos, keine monatlichen Gebühren. Einmalige Anschaffung.</p>
+      <div class="il-grid-2">
+        <!-- Starter -->
+        <div class="il-pricing-card">
+          <h3 style="font-size: 22px; font-weight: 700;">Starter-Paket</h3>
+          <p style="color: var(--il-text-muted); font-size: 14px; margin-top: 4px;">Ideal für kleine Geschäfte, Studios &amp; Salons.</p>
+          <div class="il-price">CHF 89</div>
+          <span style="font-size: 12px; color: var(--il-text-muted);">einmalig, inkl. MwSt.</span>
+          <ul class="il-list" style="margin-top: 24px;">
+            <li><span>✓</span> <span>2x Epoxy-NFC-Sticker</span></li>
+            <li><span>✓</span> <span>Fertig konfiguriert für Ihr Google-Profil</span></li>
+            <li><span>✓</span> <span>Kostenloser Versand in der Schweiz</span></li>
+            <li><span>✓</span> <span>Support per WhatsApp &amp; E-Mail</span></li>
+          </ul>
+          <a href="#bestellen" class="il-btn-outline" style="width: 100%; box-sizing: border-box; margin-top: 30px;">Direkt bestellen</a>
+        </div>
+        <!-- Gastro -->
+        <div class="il-pricing-card featured">
+          <span class="il-pricing-badge">BESTSELLER</span>
+          <h3 style="font-size: 22px; font-weight: 700;">Gastro-Paket</h3>
+          <p style="color: var(--il-text-muted); font-size: 14px; margin-top: 4px;">Für Restaurants, Cafés und Bars mit mehreren Tischen.</p>
+          <div class="il-price">CHF 189</div>
+          <span style="font-size: 12px; color: var(--il-text-muted);">einmalig, inkl. MwSt.</span>
+          <ul class="il-list" style="margin-top: 24px;">
+            <li><span>✓</span> <span>5x Epoxy-NFC-Sticker + 1x Tischaufsteller</span></li>
+            <li><span>✓</span> <span>Fertig konfiguriert für Ihr Google-Profil</span></li>
+            <li><span>✓</span> <span>Kostenloser Versand inklusive</span></li>
+            <li><span>✓</span> <span>Prioritäts-Support</span></li>
+          </ul>
+          <a href="#bestellen" class="il-btn-hero" style="width: 100%; box-sizing: border-box; margin-top: 30px;">Direkt bestellen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="il-section">
+    <div class="il-container" style="max-width: 800px;">
+      <h2 style="font-size: 34px; font-weight: 800; margin-bottom: 30px;">Häufige Fragen</h2>
+      <details class="il-faq-item">
+        <summary>Brauche ich technische Vorkenntnisse?</summary>
+        <p>Nein. Wir konfigurieren jeden Chip fix und fertig auf Ihr Google-Profil. Sie kleben den Sticker nur noch auf – fertig.</p>
+      </details>
+      <details class="il-faq-item">
+        <summary>Funktioniert das mit jedem Smartphone?</summary>
+        <p>Ja. Alle gängigen iPhones und Android-Geräte lesen NFC direkt aus – ohne separate App.</p>
+      </details>
+      <details class="il-faq-item">
+        <summary>Was, wenn ein Gast kein NFC nutzen kann?</summary>
+        <p>Zusätzlich ist ein QR-Code integriert. So funktioniert es auf absolut jedem Smartphone.</p>
+      </details>
+      <details class="il-faq-item">
+        <summary>Verstösst das gegen Google-Richtlinien?</summary>
+        <p>Nein. Es werden weder Bewertungen gekauft noch manipuliert. Wir vereinfachen lediglich den Zugang zum Bewertungsformular.</p>
+      </details>
+      <details class="il-faq-item">
+        <summary>Wie lange dauert die Lieferung?</summary>
+        <p>In der Regel 3–5 Werktage in der ganzen Schweiz. In Basel liefern wir auf Wunsch persönlich.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- KONTAKT & 2-SPALTEN-FORMULAR -->
+  <section id="kontakt" class="il-section">
+    <div class="il-container">
+      <div style="text-align: center; margin-bottom: 48px;">
+        <h2 style="font-size: 36px; font-weight: 800;">Anfragen oder direkt bestellen</h2>
+        <p style="color: var(--il-text-muted); max-width: 620px; margin: 10px auto 0;">
+          Wählen Sie den passenden Weg. Bei Unsicherheit empfehlen wir eine unverbindliche Demo – wer schon überzeugt ist, bestellt direkt.
+        </p>
+      </div>
+
+      <div class="il-grid-2" id="bestellen">
+        <!-- Spalte 1: Demo / Anfrage -->
+        <div class="il-panel">
+          <h3 style="font-size: 22px; font-weight: 700; margin: 0 0 4px;">Demo anfragen</h3>
+          <p style="color: var(--il-text-muted); font-size: 14px; margin-bottom: 24px;">Unverbindlich, kostenlos und ohne Verpflichtung.</p>
+
+          {% form 'contact' %}
+            {% if form.posted_successfully? %}
+              <p style="color: var(--il-green); font-weight: 600; text-align: center; margin-bottom: 16px;">Vielen Dank für Ihre Demo-Anfrage!</p>
+            {% endif %}
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div>
+                <label for="demo-name" style="font-size: 13px; font-weight: 600;">Name</label>
+                <input id="demo-name" type="text" name="contact[name]" required class="il-input" placeholder="Max Muster">
+              </div>
+              <div>
+                <label for="demo-betrieb" style="font-size: 13px; font-weight: 600;">Betrieb</label>
+                <input id="demo-betrieb" type="text" name="contact[note][betrieb]" required class="il-input" placeholder="Café Rheinblick">
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px;">
+              <div>
+                <label for="demo-email" style="font-size: 13px; font-weight: 600;">E-Mail</label>
+                <input id="demo-email" type="email" name="contact[email]" required class="il-input" placeholder="max@lokal.ch">
+              </div>
+              <div>
+                <label for="demo-phone" style="font-size: 13px; font-weight: 600;">Telefon</label>
+                <input id="demo-phone" type="tel" name="contact[phone]" class="il-input" placeholder="+41 ...">
+              </div>
+            </div>
+
+            <div style="margin-top: 18px;">
+              <label style="font-size: 13px; font-weight: 600;">Demo-Option</label>
+              <div style="margin-top: 6px; border: 1px solid rgba(245, 158, 11, 0.5); background: rgba(245, 158, 11, 0.05); border-radius: 14px; padding: 14px; display: flex; gap: 14px; align-items: flex-start;">
+                <span style="font-size: 20px; color: var(--il-gold);">🏪</span>
+                <div>
+                  <strong style="font-size: 14px; color: #fff;">Persönliche Demo vor Ort</strong>
+                  <p style="font-size: 12px; color: var(--il-text-muted); margin: 2px 0 0;">Wir kommen in Ihr Lokal und zeigen Ihnen live, wie das System funktioniert.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 14px;">
+              <label for="demo-msg" style="font-size: 13px; font-weight: 600;">Nachricht</label>
+              <textarea id="demo-msg" name="contact[body]" rows="3" class="il-textarea" placeholder="Ich interessiere mich für das Gastro-Paket..."></textarea>
+            </div>
+
+            <button type="submit" class="il-btn-hero" style="width: 100%; margin-top: 24px;">Anfrage senden</button>
+            <p style="text-align: center; font-size: 12px; color: var(--il-text-muted); margin-top: 12px;">Antwort innerhalb von 24 Stunden – garantiert unverbindlich.</p>
+          {% endform %}
+        </div>
+
+        <!-- Spalte 2: Direkt bestellen & Zahlen via Shopify Checkout -->
+        <div class="il-panel" style="border-color: rgba(245, 158, 11, 0.4);">
+          <h3 style="font-size: 22px; font-weight: 700; margin: 0 0 4px;">Paket direkt bestellen</h3>
+          <p style="color: var(--il-text-muted); font-size: 14px; margin-bottom: 24px;">Paket wählen – direkt online &amp; sicher bezahlen.</p>
+
+          <form id="il-direct-order-form" onsubmit="handleDirectCheckout(event)">
+            <label style="font-size: 13px; font-weight: 600;">Wählen Sie Ihr Paket</label>
+            <div class="il-plan-select-grid">
+              <!-- Starter -->
+              <label class="il-plan-option">
+                <input 
+                  type="radio" 
+                  name="selected_package" 
+                  value="Starter-Paket" 
+                  data-variant-id="{{ section.settings.starter_variant_id }}"
+                >
+                <div class="il-plan-box">
+                  <span class="il-plan-title">Starter-Paket</span>
+                  <span class="il-plan-price">CHF 89</span>
+                  <span class="il-plan-note">einmalig, inkl. MwSt.</span>
+                  <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px; color: var(--il-text-muted);">
+                    <li>✓ 2x Epoxy-Sticker</li>
+                    <li>✓ Fertiges Setup</li>
+                  </ul>
+                </div>
+              </label>
+
+              <!-- Gastro (Standard ausgewählt) -->
+              <label class="il-plan-option">
+                <input 
+                  type="radio" 
+                  name="selected_package" 
+                  value="Gastro-Paket" 
+                  checked 
+                  data-variant-id="{{ section.settings.gastro_variant_id }}"
+                >
+                <div class="il-plan-box">
+                  <span class="il-plan-title">Gastro-Paket</span>
+                  <span class="il-plan-price">CHF 189</span>
+                  <span class="il-plan-note">einmalig, inkl. MwSt.</span>
+                  <ul style="list-style: none; padding: 0; margin: 0; font-size: 12px; color: var(--il-text-muted);">
+                    <li>✓ 5x Sticker + Aufsteller</li>
+                    <li>✓ Prioritäts-Support</li>
+                  </ul>
+                </div>
+              </label>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px;">
+              <div>
+                <label for="order-betrieb" style="font-size: 13px; font-weight: 600;">Betrieb / Lokal</label>
+                <input id="order-betrieb" type="text" name="betrieb" required class="il-input" placeholder="Café Rheinblick">
+              </div>
+              <div>
+                <label for="order-google-link" style="font-size: 13px; font-weight: 600;">Google Maps Link / Adresse</label>
+                <input id="order-google-link" type="text" name="google_link" required class="il-input" placeholder="Lokalname, Strasse...">
+              </div>
+            </div>
+
+            <div style="margin-top: 14px;">
+              <label for="order-notes" style="font-size: 13px; font-weight: 600;">Bemerkung (optional)</label>
+              <textarea id="order-notes" name="notes" rows="2" class="il-textarea" placeholder="Zusätzliche Wünsche..."></textarea>
+            </div>
+
+            <button type="submit" id="il-order-btn" class="il-btn-hero" style="width: 100%; margin-top: 24px;">Zur Kasse &amp; Bezahlen</button>
+            <p style="text-align: center; font-size: 12px; color: var(--il-text-muted); margin-top: 12px;">Sichere Bezahlung via Shopify Checkout (Twint, Kreditkarte etc.).</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Kontakt Infos -->
+      <div style="text-align: center; margin-top: 50px; color: var(--il-text-muted); font-size: 14px;">
+        <p style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+          <span>📍 Basel &amp; Region</span>
+          <span>✉️ service@ilrite.com</span>
+          <span>📞 +41 61 000 00 00</span>
+        </p>
+        <p style="margin-top: 12px;">© 2026 ILRITE Solutions · Basel, Schweiz</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  function handleDirectCheckout(e) {
+    e.preventDefault();
+    const btn = document.getElementById('il-order-btn');
+    btn.innerText = 'Wird geladen...';
+    btn.disabled = true;
+
+    const selectedRadio = document.querySelector('input[name="selected_package"]:checked');
+    const variantId = selectedRadio ? selectedRadio.getAttribute('data-variant-id') : null;
+    const betrieb = document.getElementById('order-betrieb').value;
+    const googleLink = document.getElementById('order-google-link').value;
+    const notes = document.getElementById('order-notes').value;
+
+    if (variantId && variantId !== '') {
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id: variantId,
+          quantity: 1,
+          properties: {
+            'Betrieb': betrieb,
+            'Google Maps Link / Adresse': googleLink,
+            'Bemerkung': notes
+          }
+        })
+      })
+      .then(res => res.json())
+      .then(() => {
+        window.location.href = '/checkout';
+      })
+      .catch(err => {
+        console.error(err);
+        window.location.href = '/checkout';
+      });
+    } else {
+      window.location.href = '/cart';
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "ILRITE Landing Page",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_img",
+      "label": "Logo (oben links)"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 250,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Breite",
+      "default": 140
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_img",
+      "label": "Hero Bild (NFC Sticker)"
+    },
+    {
+      "type": "image_picker",
+      "id": "stand_img",
+      "label": "Aufsteller Bild (Steps)"
+    },
+    {
+      "type": "header",
+      "content": "Shopify Produkt-Verknüpfung (Checkout)"
+    },
+    {
+      "type": "text",
+      "id": "starter_variant_id",
+      "label": "Starter-Paket Varianten-ID",
+      "info": "Die numerische ID des Starter-Produkts aus deinem Shopify-Admin"
+    },
+    {
+      "type": "text",
+      "id": "gastro_variant_id",
+      "label": "Gastro-Paket Varianten-ID",
+      "info": "Die numerische ID des Gastro-Produkts aus deinem Shopify-Admin"
+    }
+  ],
+  "presets": [
+    {
+      "name": "ILRITE Landing Page"
+    }
+  ]
+}
+{% endschema %}
